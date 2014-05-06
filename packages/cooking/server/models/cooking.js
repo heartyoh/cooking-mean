@@ -16,10 +16,8 @@ var CookingSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    image_url: {
-        type: String,
-        default: '',
-        trim: false
+    image: {
+        type: String
     },
     title: {
         type: String,

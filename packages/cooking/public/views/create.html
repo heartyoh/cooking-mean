@@ -1,10 +1,10 @@
 <div class="row-fluid" data-ng-controller="CookingController">
-	<form role="form" data-ng-submit="create()">
+	<form role="form" data-ng-submit="create()" enctype="multipart/form-data">
 		<div class="col-xs-4 col-md-4 page-elements">
 			<div class="form-group">
 				<label>headline background</label>
 				<div class="form-group form-inline">
-					<input type="file" data-ng-file-select="onFileSelect($files)" class="btn btn-sm btn-idle"/>
+					<input type="file" ng-model="image" class="btn btn-sm btn-idle" accept="image/*" app-filereader/>
 				</div>
 			</div>
 
@@ -71,7 +71,7 @@
 		</div>
 
 		<div class="col-xs-8 col-md-8 page-canvas">
-			<img ng-src="{{imageSrc}}" /><br/>
+			<img ng-src="{{image}}" /><br/>
 			<div class="headline valign-bottom halign-right">
 				<h1 class="colorType2">{{title}}</h1>
 				<p class="colorType3">{{description}}</p>
@@ -141,7 +141,7 @@
 				</div>
 				<div class="col-xs-6 col-md-6 halign-right">
 					<a href="view.html" class="btn btn-info" data-toggle="modal" data-target="#myModal">preview</a>
-					<button type="submit" class="btn btn-success">save</button>
+					<button type="submit" ng-click="uploadFile()" class="btn btn-success">save</button>
 					<button type="button" class="btn btn-idle">reset</button>
 				</div>
 				

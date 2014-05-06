@@ -1,13 +1,14 @@
 'use strict';
 
-angular.module('mean.cooking').controller('CookingController', ['$scope', '$stateParams', '$location', 'Global', 'Cooking', 'FileReader',
-	function ($scope, $stateParams, $location, Global, Cooking, FileReader) {
+angular.module('mean.cooking').controller('CookingController', ['$scope', '$stateParams', '$location', 'Global', 'Cooking',
+	function ($scope, $stateParams, $location, Global, Cooking) {
     $scope.global = Global;
 
     $scope.create = function() {
         var cooking = new Cooking({
             title: this.title,
-            description: this.description
+            description: this.description,
+            image: this.image
         });
         cooking.$save(function(response) {
             $location.path('cookings/' + response._id);
@@ -15,6 +16,7 @@ angular.module('mean.cooking').controller('CookingController', ['$scope', '$stat
 
         this.title = '';
         this.description = '';
+        this.image = '';
     };
 
     $scope.remove = function(cooking) {
@@ -58,28 +60,52 @@ angular.module('mean.cooking').controller('CookingController', ['$scope', '$stat
             $scope.cooking = cooking;
         });
     };
-
-    $scope.getFile = function () {
-        $scope.progress = 0;
-        FileReader.readAsDataUrl($scope.file, $scope)
-        .then(function(result) {
-            $scope.imageSrc = result;
-        });
-    };
- 
-    $scope.$on("fileProgress", function(e, progress) {
-        $scope.progress = progress.loaded / progress.total;
-    });
-
-
 }])
-.directive("ngFileSelect",function(){
+.directive('appFilereader', function($q) {
+    /*
+    made by elmerbulthuis@gmail.com WTFPL licensed
+    */
+    var slice = Array.prototype.slice;
+
     return {
-        link: function($scope,el){
-            el.bind("change", function(e){
-                $scope.file = (e.srcElement || e.target).files[0];
-                $scope.getFile();
-            })
-        }
-    }  
-});
+      restrict: 'A',
+      require: '?ngModel',
+      link: function(scope, element, attrs, ngModel) {
+        if (!ngModel) return;
+
+        ngModel.$render = function() {}
+
+        element.bind('change', function(e) {
+          var element = e.target;
+          if(!element.value) return;
+
+          element.disabled = true;
+          $q.all(slice.call(element.files, 0).map(readFile))
+            .then(function(values) {
+              if (element.multiple) ngModel.$setViewValue(values);
+              else ngModel.$setViewValue(values.length ? values[0] : null);
+              element.value = null;
+              element.disabled = false;
+            });
+
+          function readFile(file) {
+            var deferred = $q.defer();
+
+            var reader = new FileReader()
+            reader.onload = function(e) {
+              deferred.resolve(e.target.result);
+            }
+            reader.onerror = function(e) {
+              deferred.reject(e);
+            }
+            reader.readAsDataURL(file);
+
+            return deferred.promise;
+          }
+
+        }); //change
+
+      } //link
+
+    }; //return
+}); //appFilereader
