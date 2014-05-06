@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('mean.cooking').controller('CookingController', ['$scope', '$stateParams', '$location', 'Global', 'Cooking', 
-	function ($scope, $stateParams, $location, Global, Cooking) {
+angular.module('mean.cooking').controller('CookingController', ['$scope', '$stateParams', '$location', 'Global', 'Cooking', 'FileReader',
+	function ($scope, $stateParams, $location, Global, Cooking, FileReader) {
     $scope.global = Global;
 
     $scope.create = function() {
@@ -58,4 +58,28 @@ angular.module('mean.cooking').controller('CookingController', ['$scope', '$stat
             $scope.cooking = cooking;
         });
     };
-}]);
+
+    $scope.getFile = function () {
+        $scope.progress = 0;
+        FileReader.readAsDataUrl($scope.file, $scope)
+        .then(function(result) {
+            $scope.imageSrc = result;
+        });
+    };
+ 
+    $scope.$on("fileProgress", function(e, progress) {
+        $scope.progress = progress.loaded / progress.total;
+    });
+
+
+}])
+.directive("ngFileSelect",function(){
+    return {
+        link: function($scope,el){
+            el.bind("change", function(e){
+                $scope.file = (e.srcElement || e.target).files[0];
+                $scope.getFile();
+            })
+        }
+    }  
+});

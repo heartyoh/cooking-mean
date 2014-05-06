@@ -4,7 +4,7 @@
 			<div class="form-group">
 				<label>headline background</label>
 				<div class="form-group form-inline">
-					<button type="button" class="btn btn-sm btn-idle">...</button>
+					<input type="file" data-ng-file-select="onFileSelect($files)" class="btn btn-sm btn-idle"/>
 				</div>
 			</div>
 
@@ -71,6 +71,7 @@
 		</div>
 
 		<div class="col-xs-8 col-md-8 page-canvas">
+			<img ng-src="{{imageSrc}}" /><br/>
 			<div class="headline valign-bottom halign-right">
 				<h1 class="colorType2">{{title}}</h1>
 				<p class="colorType3">{{description}}</p>
