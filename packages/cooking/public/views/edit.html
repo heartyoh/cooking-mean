@@ -1,5 +1,5 @@
 <div class="row-fluid" data-ng-controller="CookingController" data-ng-init="findOne()">
-	<form role="form" data-ng-submit="create()">
+	<form role="form" data-ng-submit="update()">
 		<div class="col-xs-4 col-md-4 page-elements">
 			<div class="form-group">
 				<label>headline background</label>
@@ -10,7 +10,7 @@
 
 			<div class="form-group">
 				<label>headline title</label>
-				<input type="text" class="form-control input-sm" data-ng-model="title" id="" placeholder="input title">
+				<input type="text" class="form-control input-sm" data-ng-model="cooking.title" id="" placeholder="input title">
 				<div class="form-group form-inline btns-form-group">
 					<button type="button" class="btn btn-sm btn-idle glyphicon glyphicon-align-left"></button>
 					<button type="button" class="btn btn-sm btn-idle glyphicon glyphicon-align-center"></button>
@@ -19,6 +19,16 @@
 					<button type="button" class="btn btn-sm btn-idle glyphicon glyphicon-italic"></button>
 				</div>
 			</div>
+
+			<div class="form-group">
+				<label>headline description</label>
+				<textarea class="form-control input-sm" data-ng-model="cooking.description" id="" placeholder="enter description" row="3"></textarea>
+				<div class="form-group form-inline btns-form-group">
+					<button type="button" class="btn btn-sm btn-idle glyphicon glyphicon-bold"></button>
+					<button type="button" class="btn btn-sm btn-idle glyphicon glyphicon-italic"></button>
+				</div>
+			</div>
+
 
 			<div class="form-group">
 				<label>add content</label>
@@ -62,8 +72,8 @@
 
 		<div class="col-xs-8 col-md-8 page-canvas">
 			<div class="headline valign-bottom halign-right">
-				<h1 class="colorType2">headline title</h1>
-				<p class="colorType3">The most popular front-end framework for developing responsive, mobile first projects on the web.</p>
+				<h1 class="colorType2">{{cooking.title}}</h1>
+				<p class="colorType3">{{cooking.description}}</p>
 			</div>
 			
 			<div class="Paragraphline halign-center">Millions of amazing sites across the web are being built with Bootstrap. Get started on your own with our growing collection of examples or by exploring some of our favorites.
