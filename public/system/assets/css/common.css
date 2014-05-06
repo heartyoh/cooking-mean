@@ -11,9 +11,13 @@ header.navbar{margin-bottom:0;}
 .sample1{background:url(../img/cooking/photo1.png) no-repeat #fff;background-size:100% 100%;}
 .sample2{background:url(../img/cooking/photo2.jpg) no-repeat #fff;background-size:100% 100%;}
 .userPhoto{width:50px;height:50px;float:left;margin:4px 10px 0 10px;border-radius:50%;border:2px solid #292d39;}
-.page-list-cell .headline{position:relative;margin-top:-200px;width:95%;display:block;font-size:2em;color:#fff;}
-.page-list-cell .headline-description{position:relative;width:95%;display:block;font-size:1.1em;}
-.headline-halign-right,.headline-halign-right+.headline-description{text-align:right;}
+.page-list-cell .headline,.page-list-cell .valign-top .headline{position:relative;margin-top:-200px;width:95%;display:block;padding-left:12px;font-size:2em;color:#fff;}
+.page-list-cell .valign-middle .headline{position:relative;margin-top:-150px;}
+.page-list-cell .valign-bottom .headline{position:relative;margin-top:-120px;}
+.page-list-cell .headline-description{position:relative;width:95%;display:block;padding-left:12px;margin-top:-3px;font-size:1.1em;overflow:hidden;text-overflow:ellipsis;}
+.page-list-cell .valign-top .headline-description{max-height:80px;}
+.page-list-cell .valign-middle .headline-description{max-height:40px;}
+.page-list-cell .valign-bottom .headline-description{max-height:20px;}
 .page-list-cell-sideinfo{margin-top:5px;color:#394153;}
 .page-list-cell-sideinfo .starActive{color:#fff;}
 .page-list-cell-sideinfo .comment{color:#fff;font-size:.9em;}
@@ -40,12 +44,14 @@ header.navbar{margin-bottom:0;}
 
 .page-canvas{padding:0;}
 .page-canvas .headline{background:url(../img/cooking/photo1.png) no-repeat #fff;background-size:100% 100%;height:280px;padding:10px 15px;}
-.headline p{margin-top:5px;}
+.headline p{margin-top:5px;overflow:hidden;text-overflow:ellipsis;}
 .page-canvas .headline h1{margin:0;}
-.page-canvas .headline p{max-height:55px;overflow:hidden;}
 .headline.valign-top h1{margin-top:0;}
 .headline.valign-middle h1{margin-top:90px;}
 .headline.valign-bottom h1{margin-top:190px;}
+.page-canvas .headline.valign-top p{max-height:90px;}
+.page-canvas .headline.valign-middle p{max-height:75px;}
+.page-canvas .headline.valign-bottom p{max-height:40px;}
 .halign-left,.halign-left *{text-align:left;}
 .halign-center,.halign-center *{text-align:center;}
 .halign-right,.halign-right *{text-align:right;}
