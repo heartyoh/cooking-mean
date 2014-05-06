@@ -7,14 +7,14 @@ angular.module('mean.cooking').controller('CookingController', ['$scope', '$stat
     $scope.create = function() {
         var cooking = new Cooking({
             title: this.title,
-            content: this.content
+            description: this.description
         });
         cooking.$save(function(response) {
             $location.path('cookings/' + response._id);
         });
 
         this.title = '';
-        this.content = '';
+        this.description = '';
     };
 
     $scope.remove = function(cooking) {
