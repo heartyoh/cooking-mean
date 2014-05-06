@@ -1,6 +1,6 @@
 <div class="row-fluid" data-ng-controller="CookingController">
-	<div class="col-xs-4 col-md-4 page-elements">
-		<form role="form">
+	<form role="form" data-ng-submit="create()">
+		<div class="col-xs-4 col-md-4 page-elements">
 			<div class="form-group">
 				<label>headline background</label>
 				<div class="form-group form-inline">
@@ -10,7 +10,7 @@
 
 			<div class="form-group">
 				<label>headline title</label>
-				<input type="text" class="form-control input-sm" id="" placeholder="input title">
+				<input type="text" class="form-control input-sm" data-ng-model="title" id="" placeholder="input title">
 				<div class="form-group form-inline btns-form-group">
 					<button type="button" class="btn btn-sm btn-idle glyphicon glyphicon-align-left"></button>
 					<button type="button" class="btn btn-sm btn-idle glyphicon glyphicon-align-center"></button>
@@ -58,94 +58,94 @@
 					</tab>
 				</tabset>
 			</div>
-		</form>
-	</div>
+		</div>
 
-	<div class="col-xs-8 col-md-8 page-canvas">
-		<div class="headline valign-bottom halign-right">
-			<h1 class="colorType2">headline title</h1>
-			<p class="colorType3">The most popular front-end framework for developing responsive, mobile first projects on the web.</p>
-		</div>
-		
-		<div class="Paragraphline halign-center">Millions of amazing sites across the web are being built with Bootstrap. Get started on your own with our growing collection of examples or by exploring some of our favorites.
-		</div>
-		
-		<div class="padding-base-horizontal">
-			<div class="col-xs-12 col-sm-6 col-md-4">
-				<!--content item begin-->
-				<div class="row padding-base-vertical">
-					<div class="col-xs-12 col-sm-4 content-icon">
-						<span class="glyphicon glyphicon-envelope"> </span>
-					</div>
-					<div class="col-xs-12 col-sm-8 content-text">
-						<span class="content-title">email title</span>
-						<span class="content-value">email address</span>
-					</div>
-				</div>
-				<!--content item end-->
-			</div>
-			<div class="col-xs-12 col-sm-6 col-md-4">
-				<!--content item begin-->
-				<div class="row padding-base-vertical">
-					<div class="col-xs-12 col-sm-4 content-icon">
-						<span class="glyphicon glyphicon-map-marker"> </span>
-					</div>
-					<div class="col-xs-12 col-sm-8 content-text">
-						<span class="content-title">location title</span>
-						<span class="content-value">location content</span>
-					</div>
-				</div>
-				<!--content item end-->
-			</div>
-			<div class="col-xs-12 col-sm-6 col-md-4">
-				<!--content item begin-->
-				<div class="row padding-base-vertical">
-					<div class="col-xs-12 col-sm-4 content-icon">
-						<span class="glyphicon glyphicon-phone"> </span>
-					</div>
-					<div class="col-xs-12 col-sm-8 content-text">
-						<span class="content-title">phone title</span>
-						<span class="content-value">phone number</span>
-					</div>
-				</div>
-				<!--content item end-->
-			</div>
-			<div class="col-xs-12 col-sm-6 col-md-4">
-				<!--content item begin-->
-				<div class="row padding-base-vertical">
-					<div class="col-xs-12 col-sm-4 content-icon">
-						<span class="glyphicon glyphicon-globe"> </span>
-					</div>
-					<div class="col-xs-12 col-sm-8 content-text">
-						<span class="content-title">link title</span>
-						<span class="content-value">link url</span>
-					</div>
-				</div>
-				<!--content item end-->
-			</div>
-		</div>
-		<div class="btnline">
-			<div class="col-xs-6 col-md-6">
-				<button type="button" class="btn glyphicon glyphicon-arrow-left"></button>
-				<button type="button" class="btn glyphicon glyphicon-arrow-right"></button>
-			</div>
-			<div class="col-xs-6 col-md-6 halign-right">
-				<a href="view.html" class="btn btn-info" data-toggle="modal" data-target="#myModal">preview</a>
-				<button type="button" class="btn btn-success">save</button>
-				<button type="button" class="btn btn-idle">reset</button>
+		<div class="col-xs-8 col-md-8 page-canvas">
+			<div class="headline valign-bottom halign-right">
+				<h1 class="colorType2">headline title</h1>
+				<p class="colorType3">The most popular front-end framework for developing responsive, mobile first projects on the web.</p>
 			</div>
 			
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
-					<div class="page-canvas">
-						<div class="headline valign-bottom halign-right">
-							<h1 class="colorType2 animated right-to-left">headline title</h1>
-							<p class="colorType3 animated right-to-left">The most popular front-end framework for developing responsive, mobile first projects on the web.</p>
+			<div class="Paragraphline halign-center">Millions of amazing sites across the web are being built with Bootstrap. Get started on your own with our growing collection of examples or by exploring some of our favorites.
+			</div>
+			
+			<div class="padding-base-horizontal">
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<!--content item begin-->
+					<div class="row padding-base-vertical">
+						<div class="col-xs-12 col-sm-4 content-icon">
+							<span class="glyphicon glyphicon-envelope"> </span>
+						</div>
+						<div class="col-xs-12 col-sm-8 content-text">
+							<span class="content-title">email title</span>
+							<span class="content-value">email address</span>
+						</div>
+					</div>
+					<!--content item end-->
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<!--content item begin-->
+					<div class="row padding-base-vertical">
+						<div class="col-xs-12 col-sm-4 content-icon">
+							<span class="glyphicon glyphicon-map-marker"> </span>
+						</div>
+						<div class="col-xs-12 col-sm-8 content-text">
+							<span class="content-title">location title</span>
+							<span class="content-value">location content</span>
+						</div>
+					</div>
+					<!--content item end-->
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<!--content item begin-->
+					<div class="row padding-base-vertical">
+						<div class="col-xs-12 col-sm-4 content-icon">
+							<span class="glyphicon glyphicon-phone"> </span>
+						</div>
+						<div class="col-xs-12 col-sm-8 content-text">
+							<span class="content-title">phone title</span>
+							<span class="content-value">phone number</span>
+						</div>
+					</div>
+					<!--content item end-->
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<!--content item begin-->
+					<div class="row padding-base-vertical">
+						<div class="col-xs-12 col-sm-4 content-icon">
+							<span class="glyphicon glyphicon-globe"> </span>
+						</div>
+						<div class="col-xs-12 col-sm-8 content-text">
+							<span class="content-title">link title</span>
+							<span class="content-value">link url</span>
+						</div>
+					</div>
+					<!--content item end-->
+				</div>
+			</div>
+			<div class="btnline">
+				<div class="col-xs-6 col-md-6">
+					<button type="button" class="btn glyphicon glyphicon-arrow-left"></button>
+					<button type="button" class="btn glyphicon glyphicon-arrow-right"></button>
+				</div>
+				<div class="col-xs-6 col-md-6 halign-right">
+					<a href="view.html" class="btn btn-info" data-toggle="modal" data-target="#myModal">preview</a>
+					<button type="submit" class="btn btn-success">save</button>
+					<button type="button" class="btn btn-idle">reset</button>
+				</div>
+				
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="page-canvas">
+							<div class="headline valign-bottom halign-right">
+								<h1 class="colorType2 animated right-to-left">headline title</h1>
+								<p class="colorType3 animated right-to-left">The most popular front-end framework for developing responsive, mobile first projects on the web.</p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</form>
 </div>
 
