@@ -1,5 +1,5 @@
-.navbar-brand{color:#fff;}
-header{background-color:#393f4f !important;border:none !important;text-transform:capitalize;}
+
+header{border:none !important;text-transform:capitalize;}
 header .navbar-nav.navbar-right:last-child{margin-right:0;}
 header.navbar{margin-bottom:0;}
 .nav-menulist a:hover{background-color:#393f4f;color:#fff;}

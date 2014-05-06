@@ -10,6 +10,13 @@ $btn-idle-border:darken($btn-idle-bg, 5%) !default;
 $label-idle-bg:$brand-idle !default;
 $progress-bar-idle-bg:$brand-idle !default;
 
+$navbar-inverse-color:$link-color !default;
+$navbar-inverse-bg:#393f4f !default;
+$navbar-inverse-link-color:$link-color !default;
+$navbar-inverse-link-hover-color:#94c6ea !default;
+$navbar-inverse-link-active-color:$navbar-inverse-link-hover-color !default;
+$navbar-inverse-brand-color:#fff !default;
+
 @media screen and(max-width:768px){
     .content-text span{text-align:center;}
 }
