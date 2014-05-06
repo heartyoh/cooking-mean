@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 //Setting up route
 angular.module('mean.system').config(['$stateProvider', '$urlRouterProvider',
@@ -10,7 +10,10 @@ angular.module('mean.system').config(['$stateProvider', '$urlRouterProvider',
             $stateProvider              
                 .state('home', {
                     url: '/',
-                    templateUrl: 'public/system/views/index.html'
+                    templateUrl: function(stateParams) {
+                        xxxxxx = this;
+                        return 'public/system/views/index.html';
+                    }
                 })
                 .state('auth', {
                     templateUrl: 'public/auth/views/index.html'
