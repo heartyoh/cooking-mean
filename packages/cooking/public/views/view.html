@@ -1,0 +1,29 @@
+<section data-ng-controller="CookingController" data-ng-init="findOne()">
+    <div class="page-list-cell sample1">
+        <div class="page-info">
+            <img class="userPhoto" src="https://avatars1.githubusercontent.com/u/46275?s=460"/>
+            {{cooking.user.name}}
+            <span>{{cooking.created | date:'medium'}}</span>
+        </div>
+        <span class="headline headline-halign-right colorType2">{{cooking.title}}</span>
+        <span class="headline-description colorType1">{{cooking.description}}</span>
+    </div>
+    <div class="page-list-cell-sideinfo row">
+        <div class="col-xs-6 col-md-6 text-left">
+            <span class="glyphicon glyphicon-star starActive"></span>
+            <span class="glyphicon glyphicon-star starActive"></span>
+            <span class="glyphicon glyphicon-star starActive"></span>
+            <span class="glyphicon glyphicon-star starActive"></span>
+            <span class="glyphicon glyphicon-star"></span>
+        </div>
+        <div class="col-xs-6 col-md-6 text-right comment"><span class="glyphicon glyphicon-comment"></span> 123,456 </div>
+    </div>
+    <div data-ng-show="global.user._id == cooking.user._id">
+        <a class="btn" href="/#!/cookings/{{cooking._id}}/edit">
+            <i class="glyphicon glyphicon-edit"></i>
+        </a>
+        <a class="btn" data-ng-click="remove();">
+            <i class="glyphicon glyphicon-trash"></i>
+        </a>
+    </div>
+</section>

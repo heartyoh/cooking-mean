@@ -1,0 +1,151 @@
+<div class="row-fluid" data-ng-controller="CookingController" data-ng-init="findOne()">
+	<form role="form" data-ng-submit="create()">
+		<div class="col-xs-4 col-md-4 page-elements">
+			<div class="form-group">
+				<label>headline background</label>
+				<div class="form-group form-inline">
+					<button type="button" class="btn btn-sm btn-idle">...</button>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label>headline title</label>
+				<input type="text" class="form-control input-sm" data-ng-model="title" id="" placeholder="input title">
+				<div class="form-group form-inline btns-form-group">
+					<button type="button" class="btn btn-sm btn-idle glyphicon glyphicon-align-left"></button>
+					<button type="button" class="btn btn-sm btn-idle glyphicon glyphicon-align-center"></button>
+					<button type="button" class="btn btn-sm btn-idle glyphicon glyphicon-align-right"></button>
+					<button type="button" class="btn btn-sm btn-idle glyphicon glyphicon-bold"></button>
+					<button type="button" class="btn btn-sm btn-idle glyphicon glyphicon-italic"></button>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label>add content</label>
+				<tabset>
+					<tab>
+						<span tab-heading class="element-content element-text"></span>
+						<textarea class="form-control" rows="4" placeholder="input text"></textarea>
+						<div class="form-group form-inline btns-form-group">
+							<button type="button" class="btn btn-sm btn-idle glyphicon glyphicon-align-left"></button>
+							<button type="button" class="btn btn-sm btn-idle glyphicon glyphicon-align-center"></button>
+							<button type="button" class="btn btn-sm btn-idle glyphicon glyphicon-align-right"></button>
+							<button type="button" class="btn btn-sm btn-idle glyphicon glyphicon-bold"></button>
+							<button type="button" class="btn btn-sm btn-idle glyphicon glyphicon-italic"></button>
+						</div>
+					</tab>
+					<tab>
+						<span tab-heading class="element-content element-link"></span>
+						<input type="text" class="form-control input-sm" placeholder="input link title"/>
+							<input type="text" class="form-control input-sm padding-sm-top" placeholder="input url"/>
+						<input type="checkbox" value="" id="chk-target"/>
+						<label for="chk-target" class="checkLabel">target :	to new tab</label>
+					</tab>
+					<tab>
+						<span tab-heading class="element-content element-mail"></span>
+						<input type="text" class="form-control input-sm" placeholder="input e-mail title"/>
+						<input type="text" class="form-control input-sm padding-sm-top" placeholder="input e-mail address"/>
+					</tab>
+					<tab>
+						<span tab-heading class="element-content element-location"></span>
+						<input type="text" class="form-control input-sm" placeholder="input location title"/>
+						<input type="text" class="form-control input-sm padding-sm-top" placeholder="input location value"/>
+					</tab>
+					<tab>
+						<span tab-heading class="element-content element-phone"></span>
+						<input type="text" class="form-control input-sm" placeholder="input phone title"/>
+						<input type="text" class="form-control input-sm padding-sm-top" placeholder="input phone number"/>
+					</tab>
+				</tabset>
+			</div>
+		</div>
+
+		<div class="col-xs-8 col-md-8 page-canvas">
+			<div class="headline valign-bottom halign-right">
+				<h1 class="colorType2">headline title</h1>
+				<p class="colorType3">The most popular front-end framework for developing responsive, mobile first projects on the web.</p>
+			</div>
+			
+			<div class="Paragraphline halign-center">Millions of amazing sites across the web are being built with Bootstrap. Get started on your own with our growing collection of examples or by exploring some of our favorites.
+			</div>
+			
+			<div class="padding-base-horizontal">
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<!--content item begin-->
+					<div class="row padding-base-vertical">
+						<div class="col-xs-12 col-sm-4 content-icon">
+							<span class="glyphicon glyphicon-envelope"> </span>
+						</div>
+						<div class="col-xs-12 col-sm-8 content-text">
+							<span class="content-title">email title</span>
+							<span class="content-value">email address</span>
+						</div>
+					</div>
+					<!--content item end-->
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<!--content item begin-->
+					<div class="row padding-base-vertical">
+						<div class="col-xs-12 col-sm-4 content-icon">
+							<span class="glyphicon glyphicon-map-marker"> </span>
+						</div>
+						<div class="col-xs-12 col-sm-8 content-text">
+							<span class="content-title">location title</span>
+							<span class="content-value">location content</span>
+						</div>
+					</div>
+					<!--content item end-->
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<!--content item begin-->
+					<div class="row padding-base-vertical">
+						<div class="col-xs-12 col-sm-4 content-icon">
+							<span class="glyphicon glyphicon-phone"> </span>
+						</div>
+						<div class="col-xs-12 col-sm-8 content-text">
+							<span class="content-title">phone title</span>
+							<span class="content-value">phone number</span>
+						</div>
+					</div>
+					<!--content item end-->
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-4">
+					<!--content item begin-->
+					<div class="row padding-base-vertical">
+						<div class="col-xs-12 col-sm-4 content-icon">
+							<span class="glyphicon glyphicon-globe"> </span>
+						</div>
+						<div class="col-xs-12 col-sm-8 content-text">
+							<span class="content-title">link title</span>
+							<span class="content-value">link url</span>
+						</div>
+					</div>
+					<!--content item end-->
+				</div>
+			</div>
+			<div class="btnline">
+				<div class="col-xs-6 col-md-6">
+					<button type="button" class="btn glyphicon glyphicon-arrow-left"></button>
+					<button type="button" class="btn glyphicon glyphicon-arrow-right"></button>
+				</div>
+				<div class="col-xs-6 col-md-6 halign-right">
+					<a href="view.html" class="btn btn-info" data-toggle="modal" data-target="#myModal">preview</a>
+					<button type="submit" class="btn btn-success">save</button>
+					<button type="button" class="btn btn-idle">reset</button>
+				</div>
+				
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="page-canvas">
+							<div class="headline valign-bottom halign-right">
+								<h1 class="colorType2 animated right-to-left">headline title</h1>
+								<p class="colorType3 animated right-to-left">The most popular front-end framework for developing responsive, mobile first projects on the web.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
