@@ -6,13 +6,13 @@ header.navbar{margin-bottom:0;}
 .nav-menulist .active{border-bottom:3px solid #94c6ea;color:#94c6ea;}
 .navbar-nav a:hover,.navbar-nav:focus,.page-elements .nav-tabs a:hover{background-color:transparent !important;}
 .page-list-cell{margin-top:15px;height:200px;overflow:hidden;border:1px solid #485061;border-width:1px 2px 2px 1px;}
-.page-list-cell .page-info{position:relative;background-color:rgba(36,43,60,0.8);height:60px;margin-top:140px;line-height:2;color:#fff;font-size:1.3em;}
+.page-list-cell .page-info{position:relative;margin-top:140px;background-color:rgba(36,43,60,0.8);height:60px;line-height:2;color:#fff;font-size:1.3em;}
 .page-info span{display:block;margin-top:-5px;font-size:11px;color:#9aa2b2;}
 .sample1{background:url(../img/cooking/photo1.png) no-repeat #fff;background-size:100% 100%;}
 .sample2{background:url(../img/cooking/photo2.jpg) no-repeat #fff;background-size:100% 100%;}
 .userPhoto{width:50px;height:50px;float:left;margin:4px 10px 0 10px;border-radius:50%;border:2px solid #292d39;}
-.page-list-cell .headline{position:absolute;margin:20px 10px 5px 10px;top:0;width:80%;font-size:2em;color:#fff;}
-.page-list-cell .headline-description{position:absolute;top:50px;margin:5px 10px 5px 12px;width:80%;font-size:1.1em;}
+.page-list-cell .headline{position:relative;margin-top:-200px;width:95%;display:block;font-size:2em;color:#fff;}
+.page-list-cell .headline-description{position:relative;width:95%;display:block;font-size:1.1em;}
 .headline-halign-right,.headline-halign-right+.headline-description{text-align:right;}
 .page-list-cell-sideinfo{margin-top:5px;color:#394153;}
 .page-list-cell-sideinfo .starActive{color:#fff;}
@@ -29,6 +29,7 @@ header.navbar{margin-bottom:0;}
 
 .page-elements{padding-top:12px;}
 .page-canvas{background-color:#fff;}
+.headline{max-height:320px;}
 .page-elements label{color:#b5bdce;font-weight:normal;margin-bottom:1px;font-size:13px;}
 .page-elements .btn-sm{padding:3px 7px;font-size:14px;}
 .page-elements .nav-tabs,.nav-tabs *{border:none !important;}
@@ -41,12 +42,13 @@ header.navbar{margin-bottom:0;}
 .page-canvas .headline{background:url(../img/cooking/photo1.png) no-repeat #fff;background-size:100% 100%;height:280px;padding:10px 15px;}
 .headline p{margin-top:5px;}
 .page-canvas .headline h1{margin:0;}
+.page-canvas .headline p{max-height:55px;overflow:hidden;}
 .headline.valign-top h1{margin-top:0;}
-.headline.valign-middle h1{margin-top:13%;}
-.headline.valign-bottom h1{margin-top:20%;}
-.halign-left{text-align:left;}
-.halign-center{text-align:center;}
-.halign-right{text-align:right;}
+.headline.valign-middle h1{margin-top:90px;}
+.headline.valign-bottom h1{margin-top:190px;}
+.halign-left,.halign-left *{text-align:left;}
+.halign-center,.halign-center *{text-align:center;}
+.halign-right,.halign-right *{text-align:right;}
 .Paragraphline{background-color:#ebebeb;padding:10px 15px;font-size:1.3em;}
 
 .content-icon{text-align:center;}
