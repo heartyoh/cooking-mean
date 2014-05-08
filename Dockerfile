@@ -11,11 +11,11 @@
 # 
 # Then to run that image and attach to it at the same time:
 # 
-#     docker run -d -p 3000:80 --name cooking cooking
+#     docker run -d -p 80:3000 --name cooking cooking
 #
 # To run that image on the shell
 #
-#     docker run -p 3000:80 --rm -i -t cooking /bin/bash
+#     docker run -p 80:3000 --rm -i -t cooking /bin/bash
 #     
 # To test cooking server, try to open following URL on the internet browser:
 #   
