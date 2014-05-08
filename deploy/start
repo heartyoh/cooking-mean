@@ -1,0 +1,5 @@
+#!/bin/sh
+
+/usr/sbin/runsvdir-start &
+sleep 10
+cd /cooking && node ./server.js

@@ -11,7 +11,7 @@
 # 
 # Then to run that image and attach to it at the same time:
 # 
-#     docker run -d -p 3000:80 cooking
+#     docker run -d -p 3000:80 --name cooking cooking
 #
 # To run that image on the shell
 #
@@ -67,6 +67,7 @@ RUN npm install -g bower
 RUN cd /cooking && bower --allow-root install
 
 # Runit Automatically setup all services in the sv directory
+RUN chmod +x /cooking/deploy/start
 RUN for dir in /cooking/deploy/service/*; do echo $dir; chmod +x $dir/run $dir/log/run; ln -s $dir /etc/service/; done
 
 ENV HOME /root
