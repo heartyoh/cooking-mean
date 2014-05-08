@@ -32,7 +32,7 @@ RUN echo 'deb http://archive.ubuntu.com/ubuntu precise main universe' > /etc/apt
 
 # Runit
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y runit 
-CMD /usr/sbin/runsvdir-start
+CMD /cooking/deploy/start
 
 # SSHD
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openssh-server &&	mkdir -p /var/run/sshd && \
