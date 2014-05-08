@@ -1,12 +1,13 @@
 <div class="container-fluid" data-ng-controller="CookingController" data-ng-init="find()">
 	<div class="row">
-		<div data-ng-repeat="cooking in cookings" class="col-xs-12 col-sm-6 col-md-3">
-			<div class="page-list-cell sample1">
+		<div data-ng-repeat="cooking in cookings" class="col-xs-12 col-sm-6 col-md-3 page-list">
+			<div class="page-list-cell">
 				<div class="page-info">
 					<img class="userPhoto" src="https://avatars1.githubusercontent.com/u/46275?s=460"/>
 					{{cooking.user.name}}
 					<span>{{cooking.created | date:'medium'}}</span>
 				</div>
+				<img ng-src="{{cooking.image}}" class="page-background"/>
 				<a data-ng-href="#!/cookings/{{cooking._id}}" class="halign-right valign-middle">
 					<span class="headline colorType2">{{cooking.title}}</span>
 					<span class="headline-description colorType1">{{cooking.description}}</span>
