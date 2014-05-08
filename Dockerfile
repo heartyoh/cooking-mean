@@ -22,7 +22,7 @@
 #     http://{yourserver}
 
 
-FROM ubuntu:12.04
+FROM ubuntu
 MAINTAINER Hearty, Oh. "heartyoh@gmail.com"
  
 # make sure the package repository is up to date
