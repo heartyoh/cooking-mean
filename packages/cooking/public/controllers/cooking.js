@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('mean.cooking').controller('CookingController', ['$scope', '$stateParams', '$location', 'Global', 'Cooking',
+angular.module('mean').controller('CookingController', ['$scope', '$stateParams', '$location', 'Global', 'Cooking',
 	function ($scope, $stateParams, $location, Global, Cooking) {
     $scope.global = Global;
 
@@ -73,7 +73,7 @@ angular.module('mean.cooking').controller('CookingController', ['$scope', '$stat
       link: function(scope, element, attrs, ngModel) {
         if (!ngModel) return;
 
-        ngModel.$render = function() {}
+        ngModel.$render = function() {};
 
         element.bind('change', function(e) {
           var element = e.target;
@@ -91,13 +91,13 @@ angular.module('mean.cooking').controller('CookingController', ['$scope', '$stat
           function readFile(file) {
             var deferred = $q.defer();
 
-            var reader = new FileReader()
+            var reader = new FileReader();
             reader.onload = function(e) {
               deferred.resolve(e.target.result);
-            }
+            };
             reader.onerror = function(e) {
               deferred.reject(e);
-            }
+            };
             reader.readAsDataURL(file);
 
             return deferred.promise;

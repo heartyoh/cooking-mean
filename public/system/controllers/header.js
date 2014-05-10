@@ -7,15 +7,6 @@ angular.module('mean.system').controller('HeaderController', ['$scope', '$rootSc
 
         // Default hard coded menu items for main menu
         var defaultMainMenu = [];
-        // var defaultMainMenu = [{
-        //     'roles': ['authenticated'],
-        //     'title': 'Articles',
-        //     'link': 'all articles'
-        // }, {
-        //     'roles': ['authenticated'],
-        //     'title': 'Create New Article',
-        //     'link': 'create article'
-        // }];
 
         // Query menus added by modules. Only returns menus that user is allowed to see.
         function queryMenu(name, defaultMenu) {

@@ -1,22 +1,30 @@
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="https://www.facebook.com/2008/fbml" itemscope="itemscope" itemtype="http://schema.org/Product">
-    {% include '../includes/head.html' %}
-    <body>
-        <header class="navbar navbar-inverse navbar-static-top" data-ng-include="'/public/system/views/header.html'" data-role="navigation" data-ng-controller="HeaderController">
-        </header>
+{% include '../includes/head.html' %}
 
-        {% block content %}{% endblock %}
+<body>
+    <header class="navbar navbar-inverse navbar-static-top" data-ng-include="'/public/system/views/header.html'" data-role="navigation" data-ng-controller="HeaderController">
+    </header>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
+    {% if adminEnabled() %}
+    <section class="admin-menu">
+        <div data-ng-include="'/mean-admin/views/index.html'"></div>
+    </section>
+    {% endif %}
 
-        {% include '../includes/foot.html' %}
-    </body>
+    {% block content %}{% endblock %}
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
+
+    {% include '../includes/foot.html' %}
+</body>
+
 </html>

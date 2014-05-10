@@ -119,7 +119,7 @@ module.exports = function(grunt) {
                 reporter: 'spec',
                 require: 'server.js'
             },
-            src: ['test/mocha/**/*.js']
+            src: ['test/mocha/**/*.js', 'packages/**/test/mocha/**/*.js']
         },
         env: {
             test: {

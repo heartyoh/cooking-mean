@@ -53,5 +53,7 @@ Cooking.register(function(app, auth, database) {
     });
     */
 
+    Cooking.aggregateAsset('css', 'cooking.css');
+
     return Cooking;
 });
