@@ -1,0 +1,14 @@
+<div class="container-fluid" data-ng-controller="ExpenseController" data-ng-init="find()">
+	<div class="row">
+		<div data-ng-repeat="expense in expenses" class="col-xs-12 col-sm-6 col-md-3 page-list">
+			<div class="page-list-cell">
+				<a data-ng-href="#!/expenses/{{expense._id}}">
+					<span>{{expense.account}}</span>
+					<span>{{expense.amount}}</span>
+					<span>{{expense.comment}}</span>
+					<span>{{expense.date | date:'medium'}}</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

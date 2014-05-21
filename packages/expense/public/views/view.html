@@ -1,0 +1,36 @@
+<section data-ng-controller="ExpenseController" data-ng-init="findOne()" class="page-view">
+    <div class="page-list-cell">
+		<div class="page-info">
+            <div class="col-xs-6 col-md-6">
+            	{{expense.user.name}}
+				<span>{{expense.date | date:'medium'}}</span>
+			</div>
+		    <div data-ng-show="global.user._id == expense.user._id" class="col-xs-6 col-md-6 text-right">
+		        <a class="btn glyphicon glyphicon-edit" href="/#!/expenses/{{expense._id}}/edit"></a>
+		        <a class="btn glyphicon glyphicon-trash" data-ng-click="remove();"></a>
+		    </div>	
+        </div>
+
+		<label>Amount</label>
+		<div>{{expense.amount}}</div>
+		<label>Comment</label>
+		<div>{{expense.comment}}</div>
+		<label>Account</label>
+		<div>{{expense.account}}</div>
+		<label>Currency</label>
+		<div>{{expense.currency}}</div>
+		<label>Confirm</label>
+		<div>{{expense.confirm}}</div>
+		<label>To Currency</label>
+		<div>{{expense.excurrency}}</div>
+		<label>Exchange Rate</label>
+		<div>{{expense.exrate}}</div>
+		<label>Exchanged Amount</label>
+		<div>{{expense.exchanged}}</div>
+		<label>Date</label>
+		<div>{{expense.date}}</div>
+		<label>User</label>
+		<div>{{expense.user.name}}</div>
+
+	</div>
+</section>

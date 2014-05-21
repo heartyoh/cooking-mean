@@ -79,15 +79,6 @@ angular.module('mean').controller('CookingController', ['$scope', '$stateParams'
           var element = e.target;
           if(!element.value) return;
 
-          element.disabled = true;
-          $q.all(slice.call(element.files, 0).map(readFile))
-            .then(function(values) {
-              if (element.multiple) ngModel.$setViewValue(values);
-              else ngModel.$setViewValue(values.length ? values[0] : null);
-              element.value = null;
-              element.disabled = false;
-            });
-
           function readFile(file) {
             var deferred = $q.defer();
 
@@ -102,6 +93,15 @@ angular.module('mean').controller('CookingController', ['$scope', '$stateParams'
 
             return deferred.promise;
           }
+
+          element.disabled = true;
+          $q.all(slice.call(element.files, 0).map(readFile))
+            .then(function(values) {
+              if (element.multiple) ngModel.$setViewValue(values);
+              else ngModel.$setViewValue(values.length ? values[0] : null);
+              element.value = null;
+              element.disabled = false;
+            });
 
         }); //change
 

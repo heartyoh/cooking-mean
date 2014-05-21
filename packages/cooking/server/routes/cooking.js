@@ -42,6 +42,7 @@ module.exports = function(Cooking, app, auth, database) {
     app.route('/cookings')
         .get(cookings.all)
         .post(auth.requiresLogin, cookings.create);
+        
     app.route('/cookings/:cookingId')
         .get(cookings.show)
         .put(auth.requiresLogin, hasAuthorization, cookings.update)
