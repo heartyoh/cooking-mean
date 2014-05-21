@@ -7,6 +7,9 @@ angular.module('mean.expense').controller('ExpenseController', ['$scope', '$http
             name: 'expense'
         };
 
+        $scope.date = new Date();
+        $scope.excurrency = 'KRW';
+
         $scope.create = function() {
             var expense = new Expense({
                 date: this.date,
@@ -43,10 +46,10 @@ angular.module('mean.expense').controller('ExpenseController', ['$scope', '$http
 
         $scope.update = function() {
             var expense = $scope.expense;
-            if (!expense.updated) {
-                expense.updated = [];
-            }
-            expense.updated.push(new Date().getTime());
+            // if (!expense.updated) {
+            //     expense.updated = [];
+            // }
+            // expense.updated.push(new Date().getTime());
 
             expense.$update(function() {
                 $location.path('expenses/' + expense._id);
@@ -79,7 +82,7 @@ angular.module('mean.expense').controller('ExpenseController', ['$scope', '$http
             }
 
             var url = '/currencies/rate?date=' 
-                + expense.date.toISOString().substr(0,10)
+                + new Date(expense.date).toISOString().substr(0,10)
                 + '&from=' + expense.currency
                 + '&to=' + expense.excurrency;
 

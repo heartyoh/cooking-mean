@@ -13,7 +13,7 @@
 			</div>
 			<div class="form-group">
 				<label>Amount</label>
-				<input type="number" step="any" class="form-control input-sm" data-ng-model="amount"  data-ng-change="calcExchanged()" placeholder="enter amount you spent">
+				<input type="number" step="any" class="form-control input-sm" data-ng-model="amount" ng-required="true" data-ng-change="calcExchanged()" placeholder="enter amount you spent">
 			</div>
 			<div class="form-group">
 				<label>Comment</label>
@@ -21,11 +21,11 @@
 			</div>
 			<div class="form-group">
 				<label>Account</label>
-				<select class="form-control" data-ng-model="account" data-ng-options="account.code as account.desc for account in accounts"></select>
+				<select class="form-control" data-ng-model="account" ng-required="true" data-ng-options="account.code as account.desc for account in accounts"></select>
 			</div>
 			<div class="form-group">
 				<label>Currency</label>
-				<select class="form-control" data-ng-model="currency" data-ng-options="k as v for (k, v) in currencies" data-ng-change="calcExchanged()"></select>
+				<select class="form-control" data-ng-model="currency" ng-required="true" data-ng-options="k as v for (k, v) in currencies" data-ng-change="calcExchanged()"></select>
 			</div>
 			<div class="form-group">
 				<label>Receipt Type</label>
@@ -33,7 +33,7 @@
 			</div>
 			<div class="form-group">
 				<label>To Currency</label>
-				<select class="form-control" data-ng-model="excurrency" data-ng-options="k as v for (k, v) in currencies" data-ng-change="calcExchanged()"></select>
+				<select class="form-control" data-ng-model="excurrency" ng-required="true" data-ng-options="k as v for (k, v) in currencies" data-ng-change="calcExchanged()"></select>
 			</div>
 			<div class="form-group">
 				<label>Exchange Rate</label>
