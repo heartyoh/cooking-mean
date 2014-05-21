@@ -113,5 +113,21 @@ angular.module('mean.expense').controller('ExpenseController', ['$scope', '$http
         $http.get('/receipts').success(function(receipts) {
             $scope.receipts = receipts;
         });
+
+        $scope.getReceiptDesc = function(code) {
+            for(var i = 0;i < $scope.receipts.length;i++) {
+                var receipt = $scope.receipts[i];
+                if(receipt.code === code)
+                    return receipt.desc;
+            }
+        }
+
+        $scope.getAccountDesc = function(code) {
+            for(var i = 0;i < $scope.accounts.length;i++) {
+                var account = $scope.accounts[i];
+                if(account.code === code)
+                    return account.desc;
+            }
+        }
     }
 ]);

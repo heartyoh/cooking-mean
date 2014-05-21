@@ -16,13 +16,15 @@
 		<label>Comment</label>
 		<div>{{expense.comment}}</div>
 		<label>Account</label>
-		<div>{{expense.account}}</div>
+		<div>{{getAccountDesc(expense.account)}}</div>
 		<label>Currency</label>
-		<div>{{expense.currency}}</div>
+		<div>{{currencies[expense.currency]}}</div>
+		<label>Receipt</label>
+		<div>{{getReceiptDesc(expense.receipt)}}</div>
 		<label>Confirm</label>
 		<div>{{expense.confirm}}</div>
 		<label>To Currency</label>
-		<div>{{expense.excurrency}}</div>
+		<div>{{currencies[expense.excurrency]}}</div>
 		<label>Exchange Rate</label>
 		<div>{{expense.exrate}}</div>
 		<label>Exchanged Amount</label>
