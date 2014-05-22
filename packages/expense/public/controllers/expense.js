@@ -115,6 +115,8 @@ angular.module('mean.expense').controller('ExpenseController', ['$scope', '$http
         });
 
         $scope.getReceiptDesc = function(code) {
+            if(!$scope.receipts)
+                return code;
             for(var i = 0;i < $scope.receipts.length;i++) {
                 var receipt = $scope.receipts[i];
                 if(receipt.code === code)
@@ -123,6 +125,8 @@ angular.module('mean.expense').controller('ExpenseController', ['$scope', '$http
         }
 
         $scope.getAccountDesc = function(code) {
+            if(!$scope.accounts)
+                return code;
             for(var i = 0;i < $scope.accounts.length;i++) {
                 var account = $scope.accounts[i];
                 if(account.code === code)

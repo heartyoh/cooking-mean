@@ -12,23 +12,23 @@
         </div>
 
 		<label>Amount</label>
-		<div>{{expense.amount}}</div>
+		<div>{{expense.amount | currency:expense.currency}}</div>
+		<label>Exchanged Amount</label>
+		<div>{{expense.exchanged | currency:expense.excurrency}}</div>
 		<label>Comment</label>
 		<div>{{expense.comment}}</div>
 		<label>Account</label>
 		<div>{{getAccountDesc(expense.account)}}</div>
 		<label>Currency</label>
 		<div>{{currencies[expense.currency]}}</div>
+		<label>To Currency</label>
+		<div>{{currencies[expense.excurrency]}}</div>
 		<label>Receipt</label>
 		<div>{{getReceiptDesc(expense.receipt)}}</div>
 		<label>Confirm</label>
 		<div>{{expense.confirm}}</div>
-		<label>To Currency</label>
-		<div>{{currencies[expense.excurrency]}}</div>
 		<label>Exchange Rate</label>
 		<div>{{expense.exrate}}</div>
-		<label>Exchanged Amount</label>
-		<div>{{expense.exchanged}}</div>
 		<label>Date</label>
 		<div>{{expense.date}}</div>
 		<label>User</label>

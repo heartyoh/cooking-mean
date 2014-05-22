@@ -5,6 +5,9 @@
  */
 var mongoose = require('mongoose'),
     Cooking = mongoose.model('Cooking'),
+    fs = require('fs'),
+    Imagemin = require('image-min'),
+    path = require('path'),
     _ = require('lodash');
 
 
@@ -20,21 +23,52 @@ exports.cooking = function(req, res, next, id) {
     });
 };
 
+// use lossless image compress plugins
+var imagemin = new Imagemin()
+    .use(Imagemin.jpegtran({ progressive: false }))
+    .use(Imagemin.gifsicle({ interlaced: true }))
+    .use(Imagemin.optipng({ optimizationLevel: 3 }));
+
+var image_preprocess = function(image, callback) {
+    var dataUrlHeader = image.match(/^data:image\/(\w+);base64,/);
+    if(!dataUrlHeader || dataUrlHeader.length == 0) {
+        callback(false, image);
+        return;
+    }
+    var base64Data = image.substr(dataUrlHeader[0].length);
+    var imageType = dataUrlHeader[1];
+
+    var url = "/uploads/" + Date.now() + "." + imageType;
+
+    imagemin
+        .src(new Buffer(base64Data, 'base64'))
+        .dest(path.join(__dirname, "../../../../public") + url)
+        .optimize(function (err, file) {
+            callback(err, url);
+        });
+};
+
 /**
  * Create an cooking
  */
 exports.create = function(req, res) {
     var cooking = new Cooking(req.body);
     cooking.user = req.user;
+    
+    image_preprocess(cooking.image, function(err, url) {
+        if(err) {
 
-    cooking.save(function(err) {
-        if (err) {
-            return res.send('users/signup', {
-                errors: err.errors,
-                cooking: cooking
-            });
         } else {
-            res.jsonp(cooking);
+            cooking.save(function(err) {
+                if (err) {
+                    return res.send('users/signup', {
+                        errors: err.errors,
+                        cooking: cooking
+                    });
+                } else {
+                    res.jsonp(cooking);
+                }
+            });
         }
     });
 };
@@ -47,14 +81,20 @@ exports.update = function(req, res) {
 
     cooking = _.extend(cooking, req.body);
 
-    cooking.save(function(err) {
-        if (err) {
-            return res.send('users/signup', {
-                errors: err.errors,
-                cooking: cooking
-            });
+    image_preprocess(cooking.image, function(err, url) {
+        if(err) {
+
         } else {
-            res.jsonp(cooking);
+            cooking.save(function(err) {
+                if (err) {
+                    return res.send('users/signup', {
+                        errors: err.errors,
+                        cooking: cooking
+                    });
+                } else {
+                    res.jsonp(cooking);
+                }
+            });
         }
     });
 };

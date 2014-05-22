@@ -2,8 +2,8 @@
 	<form role="form" data-ng-submit="create()">
 		<div class="col-xs-4 col-md-4 page-elements">
 			<div class="form-group">
+				<label>Date</label>
 				<div class="input-group">
-					<label>Date</label>
 					<input type="text" class="form-control" datepicker-popup="yyyy-MM-dd" ng-model="date" is-open="opened" ng-required="true" close-text="Close" data-ng-change="calcExchanged()" />
 					<span class="input-group-btn">
 	                	<button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -36,11 +36,11 @@
 			</div>
 			<div class="form-group">
 				<label>Exchange Rate</label>
-				<input type="number" step="any" class="form-control input-sm" data-ng-model="exrate">
+				<input type="number" step="any" readonly class="form-control input-sm" data-ng-model="exrate">
 			</div>
 			<div class="form-group">
 				<label>Exchanged Amount</label>
-				<input type="number" step="any" class="form-control input-sm" data-ng-model="exchanged">
+				<input type="number" step="any" readonly class="form-control input-sm" data-ng-model="exchanged">
 			</div>
 			<div class="form-group">
 				<input type="checkbox" data-ng-model="confirm" id="confirm-check"/>
