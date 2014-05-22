@@ -110,6 +110,7 @@ module.exports = function(app, passport, db) {
     // Setting the fav icon and static folder
     app.use(favicon());
     app.use('/public', express.static(config.root + '/public'));
+    app.use('/uploads', express.static(config.root + '/uploads'));
 
     app.get('/modules/aggregated.js', function(req, res) {
         res.setHeader('content-type', 'text/javascript');

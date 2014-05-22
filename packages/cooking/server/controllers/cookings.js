@@ -42,7 +42,7 @@ var image_preprocess = function(image, callback) {
 
     imagemin
         .src(new Buffer(base64Data, 'base64'))
-        .dest(path.join(__dirname, "../../../../public") + url)
+        .dest(path.join(__dirname, "../../../..") + url)
         .optimize(function (err, file) {
             callback(err, url);
         });
@@ -59,6 +59,8 @@ exports.create = function(req, res) {
         if(err) {
 
         } else {
+            cooking.image = url;
+
             cooking.save(function(err) {
                 if (err) {
                     return res.send('users/signup', {
@@ -85,6 +87,8 @@ exports.update = function(req, res) {
         if(err) {
 
         } else {
+            cooking.image = url;
+
             cooking.save(function(err) {
                 if (err) {
                     return res.send('users/signup', {
