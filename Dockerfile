@@ -42,7 +42,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openssh-server &&	mkdir -p
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y less net-tools inetutils-ping curl git telnet nmap socat dnsutils netcat tree htop unzip sudo
 
 # Development tools
-RUN DEBIAN_FRONTEND=noninteractive apt-get install linux-headers-$(uname -r) build-essential
+RUN DEBIAN_FRONTEND=noninteractive apt-get install build-essential
 
 # Node
 RUN curl http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x64.tar.gz | tar xz
