@@ -41,9 +41,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openssh-server &&	mkdir -p
 # Utilities
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y less net-tools inetutils-ping curl git telnet nmap socat dnsutils netcat tree htop unzip sudo
 
-# Dev. Tools
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y gcc make
-
 # Node
 RUN curl http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x64.tar.gz | tar xz
 RUN mv node* node && \
