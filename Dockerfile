@@ -22,7 +22,7 @@
 #     http://{yourserver}
 
 
-FROM ubuntu:14.04
+FROM ubuntu
 MAINTAINER Hearty, Oh. "heartyoh@gmail.com"
  
 # make sure the package repository is up to date
@@ -40,6 +40,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openssh-server &&	mkdir -p
 
 # Utilities
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y less net-tools inetutils-ping curl git telnet nmap socat dnsutils netcat tree htop unzip sudo
+
+# Development tools
+RUN DEBIAN_FRONTEND=noninteractive apt-get install linux-headers-$(uname -r) build-essential
 
 # Node
 RUN curl http://nodejs.org/dist/v0.10.26/node-v0.10.26-linux-x64.tar.gz | tar xz
