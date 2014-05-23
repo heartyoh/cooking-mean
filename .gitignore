@@ -10,4 +10,5 @@ test/coverage/
 modules/public/
 modules/views/
 /public/build/
-/uploads/*.*
+!/uploads/images/.keep
+/uploads/images/*.*

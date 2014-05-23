@@ -38,7 +38,7 @@ var image_preprocess = function(image, callback) {
     var base64Data = image.substr(dataUrlHeader[0].length);
     var imageType = dataUrlHeader[1];
 
-    var url = "/uploads/" + Date.now() + "." + imageType;
+    var url = "/uploads/images/" + Date.now() + "." + imageType;
 
     imagemin
         .src(new Buffer(base64Data, 'base64'))
