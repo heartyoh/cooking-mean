@@ -61,6 +61,7 @@ RUN mkdir -p /data/db
 ADD . /cooking
 
 RUN cd /cooking && npm install
+RUN cd /cooking/packages/cooking && npm install
 RUN npm install -g grunt-cli
 RUN echo 'eval "$(grunt --completion=bash)"' >> ~/.bashrc
 RUN npm install -g bower
