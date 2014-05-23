@@ -5,11 +5,11 @@
  */
 var mongoose = require('mongoose'),
     Cooking = mongoose.model('Cooking'),
-    fs = require('fs'),
     Imagemin = require('image-min'),
     path = require('path'),
     _ = require('lodash');
 
+var jpegtran = require('./jpegtran');
 
 /**
  * Find cooking by id
@@ -25,24 +25,25 @@ exports.cooking = function(req, res, next, id) {
 
 // use lossless image compress plugins
 var imagemin = new Imagemin()
-    .use(Imagemin.jpegtran({ progressive: false }))
+    // .use(Imagemin.jpegtran({ progressive: false }))
+    .use(jpegtran({ progressive: false }))
     .use(Imagemin.gifsicle({ interlaced: true }))
     .use(Imagemin.optipng({ optimizationLevel: 3 }));
 
 var image_preprocess = function(image, callback) {
     var dataUrlHeader = image.match(/^data:image\/(\w+);base64,/);
-    if(!dataUrlHeader || dataUrlHeader.length == 0) {
+    if(!dataUrlHeader || dataUrlHeader.length === 0) {
         callback(false, image);
         return;
     }
     var base64Data = image.substr(dataUrlHeader[0].length);
     var imageType = dataUrlHeader[1];
 
-    var url = "/uploads/images/" + Date.now() + "." + imageType;
+    var url = '/uploads/images/' + Date.now() + '.' + imageType;
 
     imagemin
         .src(new Buffer(base64Data, 'base64'))
-        .dest(path.join(__dirname, "../../../..") + url)
+        .dest(path.join(__dirname, '../../../..') + url)
         .optimize(function (err, file) {
             callback(err, url);
         });
@@ -57,7 +58,11 @@ exports.create = function(req, res) {
     
     image_preprocess(cooking.image, function(err, url) {
         if(err) {
-
+            // TODO check following error handling
+            return res.send('cookings', {
+                errors: err.errors,
+                cooking: cooking
+            });
         } else {
             cooking.image = url;
 
@@ -85,7 +90,11 @@ exports.update = function(req, res) {
 
     image_preprocess(cooking.image, function(err, url) {
         if(err) {
-
+            // TODO check following error handling
+            return res.send('cookings', {
+                errors: err.errors,
+                cooking: cooking
+            });
         } else {
             cooking.image = url;
 

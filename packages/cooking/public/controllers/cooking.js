@@ -4,6 +4,14 @@ angular.module('mean').controller('CookingController', ['$scope', '$stateParams'
 	function ($scope, $stateParams, $location, Global, Cooking) {
     $scope.global = Global;
 
+    $scope.imginfo = function($event) {
+        if($event.target.exifdata)
+            delete $event.target.exifdata;
+        EXIF.getData($event.target, function() {
+            alert(EXIF.pretty(this));
+        });
+    };
+
     $scope.create = function() {
         var cooking = new Cooking({
             title: this.title,

@@ -81,10 +81,10 @@ angular.module('mean.expense').controller('ExpenseController', ['$scope', '$http
                 return;
             }
 
-            var url = '/currencies/rate?date=' 
-                + new Date(expense.date).toISOString().substr(0,10)
-                + '&from=' + expense.currency
-                + '&to=' + expense.excurrency;
+            var url = '/currencies/rate?date=' +
+                new Date(expense.date).toISOString().substr(0,10) +
+                '&from=' + expense.currency +
+                '&to=' + expense.excurrency;
 
             $http.get(url).success(function(rate) {
                 expense.exrate = parseFloat(rate.rate);
@@ -122,7 +122,7 @@ angular.module('mean.expense').controller('ExpenseController', ['$scope', '$http
                 if(receipt.code === code)
                     return receipt.desc;
             }
-        }
+        };
 
         $scope.getAccountDesc = function(code) {
             if(!$scope.accounts)
@@ -132,6 +132,6 @@ angular.module('mean.expense').controller('ExpenseController', ['$scope', '$http
                 if(account.code === code)
                     return account.desc;
             }
-        }
+        };
     }
 ]);

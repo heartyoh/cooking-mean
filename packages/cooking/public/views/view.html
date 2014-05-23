@@ -11,7 +11,7 @@
 		        <a class="btn glyphicon glyphicon-trash" data-ng-click="remove();"></a>
 		    </div>	
         </div>
-		<img ng-src="{{cooking.image}}" class="page-background"/>
+		<img ng-src="{{cooking.image}}" class="page-background" ng-click="imginfo($event)"/>
         <span class="headline halign-right colorType2">{{cooking.title}}</span>
         <span class="headline-description colorType2">{{cooking.description}}</span>
     </div>

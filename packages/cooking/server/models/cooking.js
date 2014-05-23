@@ -4,15 +4,7 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
-    path = require('path'),
     Schema = mongoose.Schema;
-
-// var thumbnail = require('mongoose-thumbnail');
-// var thumbnailPlugin = thumbnail.thumbnailPlugin;
-// var make_upload_to_model = thumbnail.make_upload_to_model;
-
-// var uploads_base = path.join(__dirname, "uploads");
-// var uploads = path.join(uploads_base, "u");
 
 /**
  * Cooking Schema
@@ -48,16 +40,6 @@ var CookingSchema = new Schema({
         ref: 'User'
     }
 });
-
-// CookingSchema.plugin(thumbnailPlugin, {
-//     name: "photo",
-//     format: "png",
-//     size: 80,
-//     inline: false,
-//     save: true,
-//     upload_to: make_upload_to_model(uploads, 'photos'),
-//     relative_to: uploads_base
-// });
 
 /**
  * Validations
